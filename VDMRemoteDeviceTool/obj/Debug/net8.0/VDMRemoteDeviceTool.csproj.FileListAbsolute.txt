@@ -1,0 +1,11 @@
+D:\CSProj\VDMRemoteDeviceTool\VDMRemoteDeviceTool\bin\Debug\net8.0\VDMRemoteDeviceTool.deps.json
+D:\CSProj\VDMRemoteDeviceTool\VDMRemoteDeviceTool\bin\Debug\net8.0\VDMRemoteDeviceTool.dll
+D:\CSProj\VDMRemoteDeviceTool\VDMRemoteDeviceTool\bin\Debug\net8.0\VDMRemoteDeviceTool.pdb
+D:\CSProj\VDMRemoteDeviceTool\VDMRemoteDeviceTool\obj\Debug\net8.0\VDMRemoteDeviceTool.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSProj\VDMRemoteDeviceTool\VDMRemoteDeviceTool\obj\Debug\net8.0\VDMRemoteDeviceTool.AssemblyInfoInputs.cache
+D:\CSProj\VDMRemoteDeviceTool\VDMRemoteDeviceTool\obj\Debug\net8.0\VDMRemoteDeviceTool.AssemblyInfo.cs
+D:\CSProj\VDMRemoteDeviceTool\VDMRemoteDeviceTool\obj\Debug\net8.0\VDMRemoteDeviceTool.csproj.CoreCompileInputs.cache
+D:\CSProj\VDMRemoteDeviceTool\VDMRemoteDeviceTool\obj\Debug\net8.0\VDMRemoteDeviceTool.dll
+D:\CSProj\VDMRemoteDeviceTool\VDMRemoteDeviceTool\obj\Debug\net8.0\refint\VDMRemoteDeviceTool.dll
+D:\CSProj\VDMRemoteDeviceTool\VDMRemoteDeviceTool\obj\Debug\net8.0\VDMRemoteDeviceTool.pdb
+D:\CSProj\VDMRemoteDeviceTool\VDMRemoteDeviceTool\obj\Debug\net8.0\ref\VDMRemoteDeviceTool.dll

@@ -167,23 +167,23 @@ namespace VDMRemoteDeviceTool
 			return _PacketNumber;
 		}
 
-		private async void SendDiscoveryPacket(string addres, int port)
+		private async void SendDiscoveryPacket(string address, int port)
 		{
 			DatagramPacket pb = new DatagramPacket();
 			pb.SendDiscovery();
 
-			await Task.Run(() => { UdpSend(addres, port, pb.buf.ToArray()); });
+			await Task.Run(() => { UdpSend(address, port, pb.buf.ToArray()); });
 		}
 
-		private async void SendTrackerInfoPacket(string addres, int port, TrackerData data)
+		private async void SendTrackerInfoPacket(string address, int port, TrackerData data)
 		{
 			DatagramPacket pb = new DatagramPacket();
 			pb.SendTrackerInfo(GetPacketNumber(), data);
 
-			await Task.Run(() => { UdpSend(addres, port, pb.buf.ToArray()); });
+			await Task.Run(() => { UdpSend(address, port, pb.buf.ToArray()); });
 		}
 
-		public async void SendTrackerRotation(string addres, int port, TrackerData data)
+		public async void SendTrackerRotation(string address, int port, TrackerData data)
 		{
 			DatagramPacket pb = new DatagramPacket();
 			pb.SendTrackerRotation(GetPacketNumber(), 
@@ -193,10 +193,10 @@ namespace VDMRemoteDeviceTool
 								   data._Rotation.z,
 								   data._Rotation.w);
 
-			await Task.Run(() => { UdpSend(addres, port, pb.buf.ToArray()); });
+			await Task.Run(() => { UdpSend(address, port, pb.buf.ToArray()); });
 		}
 
-		public async void SendTrackerAcceleration(string addres, int port, TrackerData data)
+		public async void SendTrackerAcceleration(string address, int port, TrackerData data)
 		{
 			DatagramPacket pb = new DatagramPacket();
 			pb.SendTrackerAcceleration(GetPacketNumber(),
@@ -205,19 +205,19 @@ namespace VDMRemoteDeviceTool
 									   data._Acceleration.y,
 									   data._Acceleration.z);
 
-			await Task.Run(() => { UdpSend(addres, port, pb.buf.ToArray()); });
+			await Task.Run(() => { UdpSend(address, port, pb.buf.ToArray()); });
 		}
 
-		private async void SendTrackersData(string addres, int port)
+		private async void SendTrackersData(string address, int port)
 		{
 			foreach (var tracker in _Trackers)
 			{
-				await Task.Run(() => { SendTrackerInfoPacket(addres, port, tracker.Value); });
+				await Task.Run(() => { SendTrackerInfoPacket(address, port, tracker.Value); });
 			}
 
 			foreach (var tracker in _Trackers)
 			{
-				await Task.Run(() => { SendTrackerRotation(addres, port, tracker.Value); });
+				await Task.Run(() => { SendTrackerRotation(address, port, tracker.Value); });
 			}
 
 			foreach (var trackers in _Trackers)
@@ -227,38 +227,38 @@ namespace VDMRemoteDeviceTool
 
 			foreach (var tracker in _Trackers)
 			{
-				await Task.Run(() => { SendTrackerAcceleration(addres, port, tracker.Value); });
+				await Task.Run(() => { SendTrackerAcceleration(address, port, tracker.Value); });
 			}
 		}
 
-		public async void SendHeartbeatPacket(string addres, int port)
+		public async void SendHeartbeatPacket(string address, int port)
 		{
 			DatagramPacket pb = new DatagramPacket();
 			pb.SendHeartbeat(GetPacketNumber());
 
-			await Task.Run(() => { UdpSend(addres, port, pb.buf.ToArray()); });
+			await Task.Run(() => { UdpSend(address, port, pb.buf.ToArray()); });
 		}
 
-		public async void SendFeatureFlag(string addres, int port)
+		public async void SendFeatureFlag(string address, int port)
 		{
 			DatagramPacket pb = new DatagramPacket();
 			pb.SendFeatureFlag(GetPacketNumber());
 
-			await Task.Run(() => { UdpSend(addres, port, pb.buf.ToArray()); });
+			await Task.Run(() => { UdpSend(address, port, pb.buf.ToArray()); });
 		}
 		/*
-		private async void HandlePacket(string addres, int port, byte[] recvBuf)
+		private async void HandlePacket(string address, int port, byte[] recvBuf)
 		{
 			var newPacket = new DatagramPacket(recvBuf);
 			var packetType = newPacket.ReceivePacketType();
 
 			if (packetType == PacketType.PACKET_RECEIVE_HEARTBEAT)
 			{
-				await Task.Run(() => { SendHeartbeatPacket(addres, port); });
+				await Task.Run(() => { SendHeartbeatPacket(address, port); });
 			}
 			else if (packetType == PacketType.PACKET_PING_PONG)
 			{
-				await Task.Run(() => { UdpSend(addres, port, recvBuf); });
+				await Task.Run(() => { UdpSend(address, port, recvBuf); });
 			}
 			else if (packetType == PacketType.PACKET_SENSOR_INFO)
 			{
@@ -268,8 +268,8 @@ namespace VDMRemoteDeviceTool
 				;
 			}
 
-			await Task.Run(() => { SendTrackersData(addres, port); });
-			await Task.Run(() => { SendFeatureFlag(addres, port); });
+			await Task.Run(() => { SendTrackersData(address, port); });
+			await Task.Run(() => { SendFeatureFlag(address, port); });
 		}*/
 
 		private async void Update()

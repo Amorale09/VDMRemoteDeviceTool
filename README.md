@@ -1,3 +1,5 @@
+# PROJECT FROZEN
+
 # VDMRemoteDeviceTool
 **VDMRemoteDeviceTool** is a developer tool that allows easy usage of "Remote Devices" functionality in "PSMoveServiceEx-Virtual-Device-Manager" by Timocop. The tool is presented as a C# DLL library, and is extremely easy to use (see documentation below). Since the tool is under development, errors and bugs may be present in it, if you help by reporting them to **[Issues](https://github.com/Amorale09/VDMRemoteDeviceTool/issues)**, the project will be updated faster and better!
 
